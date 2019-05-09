@@ -13,6 +13,6 @@ node("master"){
   
   stage ('deploy')
   {
-  bat '''copy C:\\Apps\\Jenkins\\jobs\\UI based maven app\\workspace\\target\\*.war C:\\apache-tomcat-7.0.94\\webapps'''
+  bat '''copy C:\\Apps\\Jenkins\\jobs\\Ui-based-maven-app\\workspace\\target\\*.war C:\\apache-tomcat-7.0.94\\webapps'''
 }
 }
