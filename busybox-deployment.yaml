@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: boxfuse
+  labels:
+    app: boxfuse
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: boxfuse
+    spec:
+      containers:
+      - image: sujata1997/busyboxapp:latest
+        name: boxfuse
+        ports:
+        - containerPort: 8080
