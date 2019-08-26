@@ -1,5 +1,5 @@
 node("master"){
   stage ('Build') { 
-    mvn clean package
+   bat ''' mvn clean package '''
   }
 }
