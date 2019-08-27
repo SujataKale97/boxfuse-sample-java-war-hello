@@ -7,7 +7,7 @@ node("master"){
   }
   stage ('Push Docker Image')
   {
-    withCredentials([file(credentialsId: '09140495-c54b-4f11-8ce7-4fcc177b052d', variable: 'PUSHIMAGE')]) {
+    withCredentials([[$class: 'FileBinding',credentialsId: '09140495-c54b-4f11-8ce7-4fcc177b052d', variable: 'PUSHIMAGE']]) {
       bat '''
       gcloud auth activate-service-account --key-file %PUSHIMAGE%
       gcloud config set project hello-world-241305
