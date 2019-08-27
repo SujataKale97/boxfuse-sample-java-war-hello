@@ -12,7 +12,7 @@ spec:
         app: boxfuse
     spec:
       containers:
-      - image: 
-        name: gcr.io/hello-world-241305/image-repo:boxfuse
+      - image: gcr.io/hello-world-241305/image-repo:boxfuse
+        name: boxfuse
         ports:
         - containerPort: 8080
