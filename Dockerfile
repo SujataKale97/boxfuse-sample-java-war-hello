@@ -1,6 +1,9 @@
 FROM ubuntu:latest
-RUN apt-get -y update && apt-get -y upgrade
-RUN apt-get -y install openjdk-8-jdk wget maven git
+RUN apt-get -y update 
+RUN apt-get -y install openjdk-8-jdk 
+RUN apt-get -y install wget 
+RUN apt-get -y install maven 
+RUN apt-get -y install git
 
 RUN git clone https://github.com/SujataKale97/boxfuse-sample-java-war-hello.git 
 RUN cd boxfuse-sample-java-war-hello/ && mvn clean package
