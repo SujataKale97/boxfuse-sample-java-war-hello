@@ -11,6 +11,5 @@ node("master"){
       docker tag boxfuse-app:latest sujata1997/boxfuse-app:latest
       docker push sujata1997/boxfuse-app:latest
       '''
-    }
   }
 }
