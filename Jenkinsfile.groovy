@@ -12,4 +12,12 @@ node("master"){
       docker push gcr.io/hello-world-241305/image-repo:boxfuse
       '''
   }
+  stage ('Deployment')
+  {
+    bat '''
+    gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project hello-world-241305
+    kubectl delete deployment -l app=boxfuse
+    kubectl create -f busybox-deployment.yaml
+    '''
+  }
 }
