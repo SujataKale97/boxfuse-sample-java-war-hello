@@ -7,9 +7,9 @@ node("master"){
   }
   stage ('Push Docker Image')
   {
-    withCredentials([file(credentialsId: '09140495-c54b-4f11-8ce7-4fcc177b052d', variable: 'PUSH_IMAGE')]) {
+    withCredentials([file(credentialsId: '09140495-c54b-4f11-8ce7-4fcc177b052d', variable: 'PUSHIMAGE')]) {
       bat '''
-      gcloud auth activate-service-account --key-file $PUSH_IMAGE
+      gcloud auth activate-service-account --key-file ${PUSHIMAGE}
       gcloud config set project hello-world-241305
       docker-credential-gcr configure-docker
       docker tag boxfuse-app:latest gcr.io/hello-world-241305/Image-Repo:${BUILD_TIMESTAMP}
