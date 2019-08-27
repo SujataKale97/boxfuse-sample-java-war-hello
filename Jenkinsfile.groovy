@@ -8,6 +8,7 @@ node("master"){
   stage ('Push Docker Image')
   {
     bat '''
+    gcloud auth configure-docker
       docker tag boxfuse-app:latest gcr.io/hello-world-241305/image-repo:boxfuse
       docker push gcr.io/hello-world-241305/image-repo:boxfuse
       '''
