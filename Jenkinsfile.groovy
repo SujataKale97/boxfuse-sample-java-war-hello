@@ -16,8 +16,8 @@ node("master"){
   {
   bat '''
   (for /f "tokens=1,* delims=]" %%A in ('"type busybox-deployment.yaml|find /n /v """') do (
-      echo %%B
-)) >busybox-deployment1.yaml
+      echo %%B >busybox-deployment1.yaml
+)) 
 '''
 /*    bat '''
     gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project hello-world-241305 '''
