@@ -20,7 +20,7 @@ node("master"){
 
      set "line=image: gcr.io/hello-world-241305/image-repo:image_tag"
     if defined line (
-        call set "line=echo.image: gcr.io/hello-world-241305/image-repo:image_tag:=%%BUILD_NUMBER%%"
+        call set "line=echo.image: gcr.io/hello-world-241305/image-repo:image_tag:=1"
         for /f "delims=" %%X in ('"echo."%%line%%""') do %%~X
     ) ELSE echo.
 
