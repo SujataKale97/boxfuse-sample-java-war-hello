@@ -15,13 +15,14 @@ node("master"){
   stage ('Deployment')
   {
   bat '''
-  
+  echo #Deployment file  > busybox-deployment1.yaml
 SETLOCAL ENABLEDELAYEDEXPANSION
 for /f "delims=" %%a in (busybox-deployment.yaml) do (
     SET s=%%a
-    SET s=!s:image_tag=1!
+    SET s=!s:image_tag=%BUILD_NUMBER%!
     echo !s! >> busybox-deployment1.yaml
 )
+move /Y busybox-deployment1.yaml busybox-deployment.yaml
 '''
 /*    bat '''
     gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project hello-world-241305 '''
