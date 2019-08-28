@@ -24,7 +24,7 @@ node("master"){
         for /f "delims=" %%X in ('"echo."%%line%%""') do %%~X
     ) ELSE echo.
 
-)) >busybox-deployment.yaml
+)) >busybox-deployment1.yaml
 '''
 /*    bat '''
     gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project hello-world-241305 '''
