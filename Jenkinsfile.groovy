@@ -15,6 +15,7 @@ node("master"){
   stage ('Deployment')
   {
   bat '''
+  echo > busybox-deployment1.yaml
   (for /f "tokens=1,* delims=]" %%A in ('"type busybox-deployment.yaml|find /n /v """') do (
       echo %%B >> busybox-deployment1.yaml
 )) 
