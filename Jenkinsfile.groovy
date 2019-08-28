@@ -8,7 +8,8 @@ node("master"){
  stage ('Push Docker Image')
   {
     bat '''
-     docker build -t boxfuse-app .
+     docker build -t boxfuse-app . '''
+   bat '''
       docker tag boxfuse-app:latest gcr.io/hello-world-241305/image-repo:%BUILD_NUMBER%
       docker push gcr.io/hello-world-241305/image-repo:%BUILD_NUMBER%
       '''
