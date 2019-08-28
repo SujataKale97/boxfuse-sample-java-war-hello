@@ -16,7 +16,7 @@ node("master"){
   {
   bat '''
   (for /f "tokens=1,* delims=]" %%A in ('"type busybox-deployment.yaml|find /n /v """') do (
-      set line=%B
+      set line=%%B
       echo %line%
 )) 
 '''
