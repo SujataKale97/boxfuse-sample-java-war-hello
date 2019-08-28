@@ -15,12 +15,13 @@ node("master"){
   stage ('Deployment')
   {
   bat '''
-  echo #Deployment file > busybox-deployment1.yaml
-  (for /f "tokens=1,* delims=]" %%A in ('"type busybox-deployment.yaml|find /n /v """') do (
-      if "%%B"=="      - image: gcr.io/hello-world-241305/image-repo:image_tag"
-       set %%B="      - image: gcr.io/hello-world-241305/image-repo:%%BUILD_NUMBER"
-      echo %%B >> busybox-deployment1.yaml
-)) 
+  
+SETLOCAL ENABLEDELAYEDEXPANSION
+for /f "delims=" %%a in (busybox-deployment.yaml) do (
+    SET s=%%a
+    SET s=!s:image_tag=1!
+    echo !s! >> busybox-deployment1.yaml
+)
 '''
 /*    bat '''
     gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project hello-world-241305 '''
