@@ -1,11 +1,11 @@
 node("master"){
- /* stage ('Build') { 
+ stage ('Build') { 
     git credentialsId: 'ea4c3770-b2ed-4639-9ffc-cc3e586e454c', url: 'https://github.com/SujataKale97/boxfuse-sample-java-war-hello.git'
    bat '''
       mvn clean package
-      docker build -t boxfuse-app .
+     // docker build -t boxfuse-app .
     '''
-  }
+  }/*
  stage ('Push Docker Image')
   {
     bat '''
