@@ -20,7 +20,7 @@ node("master"){
 
      set line=%%B
     if %line% == "image: gcr.io/hello-world-241305/image-repo:image_tag"
-     set line= "image: gcr.io/hello-world-241305/image-repo:image_tag\%BUILD_NUMBER\%"
+     set line= "image: gcr.io/hello-world-241305/image-repo:%%BUILD_NUMBER%%"
 )) >busybox-deployment1.yaml
 '''
 /*    bat '''
