@@ -18,9 +18,9 @@ node("master"){
   bat '''
   (for /f "tokens=1,* delims=]" %%A in ('"type busybox-deployment.yaml|find /n /v """') do (
 
-     set "line=%%B"
+     set "line=image: gcr.io/hello-world-241305/image-repo:image_tag"
     if defined line (
-        call set "line=echo.%%B:image_tag=%%BUILD_NUMBER%%"
+        call set "line=echo.image: gcr.io/hello-world-241305/image-repo:image_tag:=%%BUILD_NUMBER%%"
         for /f "delims=" %%X in ('"echo."%%line%%""') do %%~X
     ) ELSE echo.
 
