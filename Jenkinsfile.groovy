@@ -5,6 +5,9 @@ node("master"){
      mvn clean package
     '''
   }
+ stage('Sonar Quality Gate'){
+    bat 'gradle build sonarqube'
+  }
  stage ('Push Docker Image')
   {
     bat '''
